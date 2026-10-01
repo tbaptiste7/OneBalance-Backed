@@ -43,7 +43,7 @@ language: "en",
 hosted_link: {
 completion_redirect_uri:
 "onebalance://hosted-link-complete",
-is_mobile_app: true
+is_mobile_app: false
 }
 });
 
