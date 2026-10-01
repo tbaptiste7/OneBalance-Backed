@@ -29,7 +29,7 @@ app: "OneBalance Backend"
 });
 });
 
-app.post("/api/plaid/create-hosted-link", async (req, res) => {
+app.post("/api/plaid/create-link-token", async (req, res) => {
 try {
 const response = await plaidClient.linkTokenCreate({
 user: {
