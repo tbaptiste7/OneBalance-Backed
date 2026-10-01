@@ -1,0 +1,13 @@
+{
+"name": "onebalance-backend",
+"version": "1.0.0",
+"description": "Secure backend for OneBalance",
+"main": "server.js",
+"scripts": {
+"start": "node server.js"
+},
+"dependencies": {
+"express": "^5.1.0",
+"plaid": "^41.0.0"
+}
+}
