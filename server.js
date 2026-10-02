@@ -9,7 +9,26 @@ CountryCode
 
 const app = express();
 app.use(express.json());
+app.get("/.well-known/apple-app-site-association", (req, res) => {
+  res.json({
+    applinks: {
+      details: [
+        {
+          appIDs: ["S9357QV94N.com.example.OneBalance"],
+          components: [
+            { "/": "/plaid/oauth-return" }
+          ]
+        }
+      ]
+    }
+  });
+});
 
+app.get("/plaid/oauth-return", (req, res) => {
+  res.type("html").send(
+    "<!doctype html><html><body><p>Return to OneBalance to continue connecting your account.</p></body></html>"
+  );
+});
 const configuration = new Configuration({
 basePath: PlaidEnvironments.sandbox,
 baseOptions: {
@@ -39,11 +58,11 @@ client_name: "OneBalance",
 products: [Products.Transactions],
 country_codes: [CountryCode.Us],
 language: "en",
+redirect_uri: "https://onebalance-backed.onrender.com/plaid/oauth-return",
 
 hosted_link: {
-completion_redirect_uri:
-"onebalance://hosted-link-complete",
-is_mobile_app: true
+  completion_redirect_uri: "onebalance://hosted-link-complete",
+  is_mobile_app: true
 }
 });
 
