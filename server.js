@@ -30,7 +30,7 @@ app.get("/plaid/oauth-return", (req, res) => {
   );
 });
 const configuration = new Configuration({
-basePath: PlaidEnvironments.sandbox,
+basePath: PlaidEnvironments[process.env.PLAID_ENV || "sandbox"],
 baseOptions: {
 headers: {
 "PLAID-CLIENT-ID": process.env.PLAID_CLIENT_ID,
