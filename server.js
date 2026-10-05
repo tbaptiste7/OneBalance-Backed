@@ -55,7 +55,7 @@ user: {
 client_user_id: "onebalance-test-user"
 },
 client_name: "OneBalance",
-products: [Products.Transactions],
+products: [Products.Liabilities],
 country_codes: [CountryCode.Us],
 language: "en",
 redirect_uri: "https://onebalance-backed.onrender.com/plaid/oauth-return",
